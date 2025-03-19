@@ -1,0 +1,6 @@
+server = "https://docker.io"
+[host."https://docker.1ms.run"]
+  capabilities = ["pull", "resolve"]
+[host."https://docker.xuanyuan.me"]
+  capabilities = ["pull", "resolve"]
+
