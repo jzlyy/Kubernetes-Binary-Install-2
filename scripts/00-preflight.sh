@@ -6,7 +6,7 @@
 sudo hostnamectl set-hostname master-node1
 
 #Configure DNS resolution for the host
-sudo cat /root/kubernetes-binary-install/configs/hosts >> /etc/hosts
+sudo cat /root/kubernetes-binary-install-2/configs/hosts >> /etc/hosts
 
 #Disable SELinux (not recommended in production environments)
 sudo setenforce 0
