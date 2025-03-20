@@ -25,7 +25,7 @@ sudo cp /root/kubernetes-binary-install-2/configs/containerd/crictl.yaml /etc/cr
 
 #Restart containerd service
 sudo systemctl daemon-reload
-sudo systemctl start containerd
+sudo systemctl restart containerd
 
 #Set up Container Runtime Interface (CRI) for containerd
 crictl config runtime-endpoint unix:///run/containerd/containerd.sock
