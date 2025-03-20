@@ -26,7 +26,19 @@ timeouts:
   tlsBootstrap: 5m0s
   upgradeManifests: 5m0s
 ---
-apiServer: {}
+apiServer:
+  certSANs:
+    - "172.168.20.90"
+    - "127.0.0.1"
+    - "kubernetes.default.svc"
+    - "master-node1"
+    - "172.168.20.10"
+    - "master-node2"
+    - "172.168.20.30"
+    - "worker-node1"
+    - "172.168.20.50"
+    - "worker-node2"
+    - "172.168.20.70"
 apiVersion: kubeadm.k8s.io/v1beta4
 caCertificateValidityPeriod: 87600h0m0s
 certificateValidityPeriod: 8760h0m0s
