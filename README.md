@@ -30,10 +30,15 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 ---
 ## 环境要求
 ### **硬件配置**
-| 角色       | CPU  | 内存 | 磁盘  | 网络带宽 |
-|------------|------|------|-------|----------|
-| Master     | 2核  | 4GB  | 50GB  | 1Gbps    |
-| Worker     | 4核  | 8GB  | 100GB | 2.5Gbps  |
+| 角色       | CPU  | 内存 | 磁盘  |
+|------------|------|------|-------|
+| Master     | 4核  | 6GB  | 60GB  | 
+| Worker     | 4核  | 8GB  | 100GB |
+
+| Kubernetes 版本 |        测试通过的 CNI 版本        |  Containerd 版本 |
+|-----------------|-----------------------------------|------------------|
+| 1.32.3          | Calico 3.24  Flannel 0.26.5       | 1.7+             |
+| 1.31.6          | Calico 1.13  Flannel 0.26.5       | 1.6+             |
 
 ### **软件依赖**
 - 操作系统: CentOS 7.9+ / Rocky Linux 8.6+
