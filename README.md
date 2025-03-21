@@ -49,8 +49,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 - 节点间时间同步误差 < 1ms（需部署 NTP 服务）
 ---
 ## 快速开始
-### 单节点开发环境部署
-# 下载安装包（替换版本号）
+### 下载安装包（替换版本号）
 wget https://github.com/jzlyy/kubernetes-binary-install-2/archive/refs/tags/v1.32.3.tar.gz
 
 ### 解压并进入目录
