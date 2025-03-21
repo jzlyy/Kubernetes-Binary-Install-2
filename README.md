@@ -53,11 +53,11 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 # 下载安装包（替换版本号）
 wget https://github.com/jzlyy/kubernetes-binary-install-2/archive/refs/tags/v1.32.3.tar.gz
 
-# 解压并进入目录
+### 解压并进入目录
 tar -xf v1.32.3.tar.gz
 cd kubernetes-binary-install-2-1.32.3/scripts
 
-# 分布执行一键安装（默认使用 Calico CNI）
+### 分布执行一键安装（默认使用 Calico CNI）
 sh 0..
 ---
 ## 详细配置
