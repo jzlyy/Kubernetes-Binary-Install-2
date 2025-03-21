@@ -88,4 +88,4 @@ sh 0..
     Master1->>etcd: 数据读写 (2379)
     Master1-->>Client: 返回结果
     Master2->>etcd: 数据同步
----
+
