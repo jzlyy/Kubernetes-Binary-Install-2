@@ -62,18 +62,18 @@ sh 0..
 ---
 ## 详细配置
 ### 自定义 kubeadm 模板
-- 修改 `configs/kubeadm-config.yaml` 中的核心参数：
-- apiVersion: kubeadm.k8s.io/v1beta3
-- kind: ClusterConfiguration
-- kubernetesVersion: v1.32.3
-- controlPlaneEndpoint: "172.168.20.90:16443"  # 高可用 VIP 地址
-- networking:
--   podSubnet: "192.168.0.0/16"         # 必须与 CNI 插件匹配
-- apiServer:
--   certSANs:                           # 证书扩展 SAN
-   - "172.168.20.90"
-   - "127.0.0.1"
-   - "kubernetes.default.svc"
+    修改 `configs/kubeadm-config.yaml` 中的核心参数：
+    apiVersion: kubeadm.k8s.io/v1beta3
+    kind: ClusterConfiguration
+    kubernetesVersion: v1.32.3
+    controlPlaneEndpoint: "172.168.20.90:16443"  # 高可用 VIP 地址
+    networking:
+      podSubnet: "192.168.0.0/16"         # 必须与 CNI 插件匹配
+    apiServer:
+      certSANs:                           # 证书扩展 SAN
+        - "172.168.20.90"
+        - "127.0.0.1"
+        - "kubernetes.default.svc"
 ---
 ## 架构说明
 ### 高可用控制平面架构
