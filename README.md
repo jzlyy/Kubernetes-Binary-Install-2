@@ -34,8 +34,9 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 | Master     | 4核  | 6GB  | 60GB  | 
 | Worker     | 4核  | 8GB  | 100GB |
 
-| Kubernetes 版本 |        测试通过的 CNI 版本        |  Containerd 版本 |
-|-----------------|-----------------------------------|------------------|
+### **版本匹配**
+| Kubernetes 版本 |        测试通过的 CNI 版本          |  Containerd 版本 |
+|-----------------|-------------------------------------|------------------|
 | 1.32.3          | Calico 3.29.2  Flannel 0.26.5       | 1.7+             |
 | 1.31.6          | Calico 3.29.1  Flannel 0.26.1       | 1.6+             |
 
