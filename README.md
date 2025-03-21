@@ -27,7 +27,6 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 - 内置 Prometheus + Grafana 监控套件，实时采集集群指标
 ---
 
----
 ## 环境要求
 ### **硬件配置**
 | 角色       | CPU  | 内存 | 磁盘  |
@@ -37,8 +36,8 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 
 | Kubernetes 版本 |        测试通过的 CNI 版本        |  Containerd 版本 |
 |-----------------|-----------------------------------|------------------|
-| 1.32.3          | Calico 3.24  Flannel 0.26.5       | 1.7+             |
-| 1.31.6          | Calico 1.13  Flannel 0.26.5       | 1.6+             |
+| 1.32.3          | Calico 3.29.2  Flannel 0.26.5       | 1.7+             |
+| 1.31.6          | Calico 3.29.1  Flannel 0.26.1       | 1.6+             |
 
 ### **软件依赖**
 - 操作系统: CentOS 7.9+ / Rocky Linux 8.6+
@@ -49,12 +48,10 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 - 控制平面节点开放端口: `6443` (apiserver), `2379-2380` (etcd)
 - 节点间时间同步误差 < 1ms（需部署 NTP 服务）
 ---
-
----
 ## 快速开始
 ### 单节点开发环境部署
 # 下载安装包（替换版本号）
-wget https://github.com/zfc-6/kubernetes-binary-install-2/archive/refs/tags/v1.32.3.tar.gz
+wget https://github.com/jzlyy/kubernetes-binary-install-2/archive/refs/tags/v1.32.3.tar.gz
 
 # 解压并进入目录
 tar -xf v1.32.3.tar.gz
@@ -63,24 +60,20 @@ cd kubernetes-binary-install-2-1.32.3/scripts
 # 分布执行一键安装（默认使用 Calico CNI）
 sh 0..
 ---
-
----
 ## 详细配置
 ### 自定义 kubeadm 模板
 修改 `configs/kubeadm-config.yaml` 中的核心参数：
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
 kubernetesVersion: v1.32.3
-controlPlaneEndpoint: "172.168.20.10:16443"  # 高可用 VIP 地址
+controlPlaneEndpoint: "172.168.20.90:16443"  # 高可用 VIP 地址
 networking:
   podSubnet: "192.168.0.0/16"         # 必须与 CNI 插件匹配
 apiServer:
   certSANs:                           # 证书扩展 SAN
-  - "k8s-vip"
-  - "172.19.2.100"
+  - "172.168.20.90"
+  - "127.0.0.1"
   - "kubernetes.default.svc"
----
-
 ---
 ## 架构说明
 ### 高可用控制平面架构
