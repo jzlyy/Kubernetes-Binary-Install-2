@@ -57,7 +57,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
     cd kubernetes-binary-install-2-1.32.3/scripts
 
 ### 分布执行一键安装（默认使用 Calico CNI）
-sh 0..
+    sh ...
 ---
 ## 详细配置
 ### 自定义 kubeadm 模板
