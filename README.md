@@ -77,7 +77,7 @@ sh 0..
 ---
 ## 架构说明
 ### 高可用控制平面架构
-sequenceDiagram
+    sequenceDiagram
     participant Client
     participant VIP
     participant Master1
