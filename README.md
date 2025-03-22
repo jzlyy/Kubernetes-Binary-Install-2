@@ -8,10 +8,10 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 
 ## Table of Contents
 - [Features](#Features)
-- [Environment Requirements](#Environment Requirements)
-- [Quick Start](#Quick Start)
-- [Detailed Configuration](#Detailed Configuration)
-- [Architecture Overview](#Architecture Overview)
+- [Environment](#Environment)
+- [Start](#Start)
+- [Detailed](#Detailed)
+- [Architecture](#Architecture)
 
 ---
 ## Features
@@ -27,7 +27,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 - Built-in Prometheus + Grafana monitoring suite for real-time cluster metrics collection.
 ---
 
-## Environment Requirements
+## Environment
 ### **Hardware Configuration**
 | Role       | CPU     | Memory | Disk  |
 |------------|---------|--------|-------|
@@ -49,7 +49,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 - Control plane nodes must open ports: `6443` (apiserver), `2379-2380` (etcd).
 - Time synchronization between nodes with skew < 1ms (NTP service required).
 ---
-## Quick Start
+## Start
 ### Download the Installation Package
     wget https://github.com/jzlyy/kubernetes-binary-install-2/archive/refs/tags/v1.32.3.tar.gz
 
@@ -60,7 +60,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 ### Execute the One-Click Installation Script
     ./xx.sh 
 ---
-## Detailed Configuration
+## Detailed
 ### Customize kubeadm Templates
     Modify the core parameters in configs/kubeadm-config.yaml：
     apiVersion: kubeadm.k8s.io/v1beta3
@@ -75,7 +75,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
         - "127.0.0.1"
         - "kubernetes.default.svc"
 ---
-## Architecture Overview
+## Architecture
 ### High Availability Control Plane Architecture
     sequenceDiagram
     participant Client
