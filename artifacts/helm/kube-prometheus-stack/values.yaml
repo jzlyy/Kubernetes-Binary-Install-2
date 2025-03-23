@@ -2740,7 +2740,7 @@ prometheusOperator:
         registry: quay.io
         repository: prometheus-operator/admission-webhook
         # if not set appVersion field from Chart.yaml is used
-        tag: ""
+        tag: "v0.81.0"
         sha: ""
         pullPolicy: IfNotPresent
 
