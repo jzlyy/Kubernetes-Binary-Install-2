@@ -15,7 +15,7 @@ sudo systemctl start docker
 
 #Configure Docker image accelerator
 sudo mkdir -p /etc/docker
-sudo cp /root/kubernetes-binary-install-2/configs/daemon.json /etc/docker/daemon.json
+sudo cp /root/Kubernetes-Binary-Install-2/configs/daemon.json /etc/docker/daemon.json
 
 #Restart Docker service
 sudo systemctl daemon-reload
