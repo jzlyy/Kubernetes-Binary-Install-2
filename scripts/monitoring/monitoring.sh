@@ -1,21 +1,21 @@
 #!/bin/bash
-set -x  # 启用调试输出
+set -x  # Enable debug output
 
 export HELM_CHART_PATH="/root/kubernetes-binary-install-2/artifacts/helm/kube-prometheus-stack"
 
-# 创建命名空间（如果不存在）
+# Create a namespace
 kubectl create ns monitor
 
-deploy_prometheus_stack() {
-  helm upgrade --install kube-prom \
-    --namespace monitoring \
-    --values "${HELM_CHART_PATH}/values.yaml" \
-    "${HELM_CHART_PATH}" \
-    --debug  # 显示详细日志
+#Create a Grafana login account
+kubectl create secret generic secret-grafana -n monitor \
+  --from-literal=username=admin \
+  --from-literal=password=grafana
 
-  # 等待 Pod 就绪
-  kubectl -n monitoring wait --for=condition=Ready pods --all --timeout=300s
+deploy_prometheus_stack() {
+  helm install kube-prometheus -n monitor  \
+         ${HELM_CHART_PATH}
 }
 
-# 执行函数
+# Execute the function
 deploy_prometheus_stack
+
