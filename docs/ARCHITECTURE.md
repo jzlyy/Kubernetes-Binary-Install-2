@@ -1,4 +1,3 @@
-%%{init: {'theme': 'forest', 'themeVariables': { 'fontSize': '12px'}}}%%
 graph TD
     subgraph External Access Layer
         A[Cloud LB] -->|TCP 6443| B[Nginx VIP]
