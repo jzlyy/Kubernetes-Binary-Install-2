@@ -2,7 +2,7 @@
 
 ######Initialize the Cluster with kubeadm######
 
-sudo kubeadm init --config=/root/kubernetes-binary-install-2/configs/kubeadm-config.yaml --upload-certs
+sudo kubeadm init --config=/root/Kubernetes-Binary-Install-2/configs/kubeadm-config.yaml --upload-certs
 
 #Set Up kubectl Access
 sudo mkdir -p $HOME/.kube
