@@ -1,4 +1,4 @@
-graph TD
+## graph TD
     subgraph External Access Layer
         A[Cloud LB] -->|TCP 6443| B[Nginx VIP]
     end
