@@ -18,10 +18,10 @@ sudo systemctl start containerd
 
 #Configure containerd image accelerator
 sudo mkdir -p /etc/containerd/certs.d/docker.io
-sudo cp /root/kubernetes-binary-install-2/configs/containerd/containerd.tolm /etc/containerd/certs.d/docker.io/hosts.toml
+sudo cp /root/Kubernetes-Binary-Install-2/configs/containerd/containerd.tolm /etc/containerd/certs.d/docker.io/hosts.toml
 
 #Configure runtime and image pulling to use containerd
-sudo cp /root/kubernetes-binary-install-2/configs/containerd/crictl.yaml /etc/crictl.yaml
+sudo cp /root/Kubernetes-Binary-Install-2/configs/containerd/crictl.yaml /etc/crictl.yaml
 
 #Restart containerd service
 sudo systemctl daemon-reload
