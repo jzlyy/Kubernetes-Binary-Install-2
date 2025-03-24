@@ -14,7 +14,7 @@ sudo cat /root/kubernetes-binary-install-2/configs/loadbalancer/nginx.conf >> /e
 sudo cp /root/kubernetes-binary-install-2/configs/loadbalancer/master-keepalived.conf /etc/keepalived/keepalived.conf
 
 #Modify keepalived configuration file (Backup)
-#sudo cp /root/Kubernetes-Binary-Install/configs/loadbalancer/backup-keepalived.conf /etc/keepalived/keepalived.conf
+#sudo cp /root/kubernetes-binary-install/configs/loadbalancer/backup-keepalived.conf /etc/keepalived/keepalived.conf
 
 #Configure Nginx health checks
 sudo cp /root/kubernetes-binary-install-2/configs/loadbalancer/check_nginx.sh /etc/keepalived/check_nginx.sh
