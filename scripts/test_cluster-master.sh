@@ -10,5 +10,5 @@ sh /root/kubernetes-binary-install-2/scripts/cluster/master/05-keepalived+nginx.
 sh /root/kubernetes-binary-install-2/scripts/cluster/master/06-kubernetes-yum.sh
 sh /root/kubernetes-binary-install-2/scripts/cluster/master/07-kubenetes-tool-install.sh
 sh /root/kubernetes-binary-install-2/scripts/cluster/master/08-kubeadm-init.sh
-sh /root/kubernetes-binary-install-2/scripts/cluster/master/networking-plugin/09-calico-install.sh
+sh /root/kubernetes-binary-install-2/scripts/cluster/master/networking-plugin/calico.sh
 
