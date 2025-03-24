@@ -3,8 +3,8 @@
 ######Install containerd environment######
 
 #Download crictl interaction tool
-#sudo wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.32.0/crictl-v1.32.0-linux-amd64.tar.gz
-#sudo tar zxvf crictl-v1.32.0-linux-amd64.tar.gz -C /usr/local/bin
+sudo wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.32.0/crictl-v1.32.0-linux-amd64.tar.gz
+sudo tar zxvf crictl-v1.32.0-linux-amd64.tar.gz -C /usr/local/bin
 
 #Edit containerd configuration file
 sudo containerd config default > /etc/containerd/config.toml
