@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@master
+        uses: ludeeus/action-shellcheck@v1.3.0
         with:
-          path: "/root/kubernetes-binary-install-2/scripts/*.sh"  
+          additional_files: "scripts/*.sh"  
 
       - name: Install CentOS-compatible Dependencies
         run: |
