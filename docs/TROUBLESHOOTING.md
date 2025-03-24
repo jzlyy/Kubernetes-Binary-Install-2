@@ -34,8 +34,8 @@ When joining worker nodes, explicitly specify the CRI socket, e.g., cri-containe
 ### Network Plugin Fails to Initialize
 Analysis:
 Each network plugin requires a specific Pod CIDR. For example:
-Calico: 192.168.0.0/16
-Flannel: 10.244.0.0/16
+    Calico: 192.168.0.0/16
+    Flannel: 10.244.0.0/16
 
 Solution:
 During cluster initialization, explicitly define the Pod CIDR that matches the chosen network plugin.
