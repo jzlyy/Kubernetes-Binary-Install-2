@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint-and-test:
+    runs-on: centos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: azohra/shellcheck@master
+        with:
+          path: "/root/kubernetes-binary-install/scripts/*.sh"  
+
+      - name: Execute Tests
+        run: |
+          chmod +x ./test_host-master.sh   
+          chmod +x ./test_cluster-master.sh   
+          ./test_host-master.sh            
+          ./test_cluster-master.sh            
