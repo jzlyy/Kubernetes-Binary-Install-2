@@ -8,7 +8,7 @@ sudo dnf -y install nginx keepalived
 sudo dnf -y install nginx-all-modules.noarch
 
 #Modify Nginx configuration file
-sudo cat /root/kubernetes-binary-install-2/configs/loadbalancer/nginx.conf >> /etc/nginx/nginx.conf
+sudo cat /root/kubernetes-binary-install-2/configs/loadbalancer/nginx.conf | sudo tee -a /etc/nginx/nginx.conf >/dev/null
 
 #Modify keepalived configuration file (Master)
 sudo cp /root/kubernetes-binary-install-2/configs/loadbalancer/master-keepalived.conf /etc/keepalived/keepalived.conf
