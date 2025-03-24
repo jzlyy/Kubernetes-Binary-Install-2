@@ -18,11 +18,6 @@ jobs:
         with:
           additional_files: "scripts/*.sh"  
 
-      - name: Install CentOS-compatible Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y yum-utils      
-
       - name: Execute Tests
         run: |
           chmod +x ./test_host-master.sh
