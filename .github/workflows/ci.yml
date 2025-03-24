@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/upload-artifact@v3
+        uses: actions/checkout@v4
 
       - name: Configure Rocky Linux Environment
         run: |
