@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-and-test:
-    runs-on: centos-latest
+    runs-on: rocky linux-v9.5
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
