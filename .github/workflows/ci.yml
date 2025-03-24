@@ -1,4 +1,4 @@
-name: CI
+name: Shell Script CI
 
 on:
   push:
@@ -7,20 +7,58 @@ on:
     branches: [ "main" ]
 
 jobs:
-  lint-and-test:
+  test-shell-scripts:
     runs-on: ubuntu-latest
+    container:
+      image: rockylinux:9  # 使用 Rocky Linux 9 官方镜像
+      options: --privileged --user root  # 以 root 权限运行容器
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@master
-        with:
-          additional_files: "scripts/*.sh"  
-
-      - name: Execute Tests
+      - name: Configure Rocky Linux Environment
         run: |
-          chmod +x ./scripts/test_host-master.sh
-          chmod +x ./scripts/test_cluster-master.sh
+          # 1. 替换为阿里云镜像源（国内加速）
+          sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/rocky-*
+          sed -i 's|#baseurl=http://dl.rockylinux.org|baseurl=https://mirrors.aliyun.com/rockylinux|g' /etc/yum.repos.d/rocky-*
+
+          # 2. 安装基础依赖
+          dnf install -y epel-release  # EPEL 仓库
+          dnf install -y git curl tar gzip ansible  # 项目所需工具
+
+          # 3. 赋予脚本执行权限
+          chmod +x ./scripts/*.sh
+
+      - name: Run Host Tests
+        run: |
+          # 执行主机测试脚本
           ./scripts/test_host-master.sh
-          ./scripts/test_cluster-master.sh          
+          if [ $? -ne 0 ]; then
+            echo "❌ Host 测试失败！"
+            exit 1
+          fi
+
+      - name: Run Cluster Tests
+        run: |
+          # 执行集群测试脚本
+          ./scripts/test_cluster-master.sh
+          if [ $? -ne 0 ]; then
+            echo "❌ Cluster 测试失败！"
+            exit 1
+          fi
+
+      - name: Security Scan (Trivy)
+        run: |
+          # 使用 Trivy 扫描高危漏洞
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          trivy filesystem --exit-code 1 --severity HIGH,CRITICAL /
+
+      - name: Upload Logs (Optional)
+        if: always()  # 始终上传日志（即使失败）
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-logs
+          path: |
+            ./logs/*.log
+            /var/log/messages
