@@ -21,4 +21,4 @@ sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
 
 #Reboot the system
-reboot
+bash
