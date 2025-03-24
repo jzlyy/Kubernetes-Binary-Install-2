@@ -2,7 +2,6 @@
 
 ######Global operation######
 
-sh /root/kubernetes-binary-install-2/scripts/cluster/master/00-preflight.sh
 sh /root/kubernetes-binary-install-2/scripts/cluster/master/01-network-rules.sh
 sh /root/kubernetes-binary-install-2/scripts/cluster/master/02-time-chrony.sh
 sh /root/kubernetes-binary-install-2/scripts/cluster/master/03-docker-install.sh
