@@ -7,4 +7,4 @@ sudo kubeadm init --config=/root/kubernetes-binary-install-2/configs/kubeadm-con
 #Set Up kubectl Access
 sudo mkdir -p ~/.kube
 sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
-sudo -E chown $(id -u):$(id -g) "$HOME/.kube/config"
+sudo -E chown "$(id -u):$(id -g) $HOME/.kube/config"
