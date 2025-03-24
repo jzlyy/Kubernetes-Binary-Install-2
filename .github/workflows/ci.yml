@@ -8,15 +8,20 @@ on:
 
 jobs:
   lint-and-test:
-    runs-on: centos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run ShellCheck
-        uses: azohra/shellcheck@master
+        uses: azohra/shellcheck@v0.9.0
         with:
-          path: "/root/kubernetes-binary-install-2/scripts/*.sh"  
+          path: "scripts/*.sh"  
+
+      - name: Install CentOS-compatible Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yum-utils
 
       - name: Execute Tests
         run: |
