@@ -1,3 +1,5 @@
+#! /bin/bash
+
 ######Install Calico Networking Plugin######
 
 sudo kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.2/manifests/tigera-operator.yaml
