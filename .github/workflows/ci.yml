@@ -20,7 +20,7 @@ jobs:
 
       - name: Execute Tests
         run: |
-          chmod +x ./test_host-master.sh
-          chmod +x ./test_cluster-master.sh
-          ./test_host-master.sh
-          ./test_cluster-master.sh          
+          chmod +x ./scripts/test_host-master.sh
+          chmod +x ./scripts/test_cluster-master.sh
+          ./scripts/test_host-master.sh
+          ./scripts/test_cluster-master.sh          
