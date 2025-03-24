@@ -16,7 +16,7 @@ jobs:
       - name: Run ShellCheck
         uses: azohra/shellcheck@master
         with:
-          path: "/root/kubernetes-binary-install/scripts/*.sh"  
+          path: "/root/kubernetes-binary-install-2/scripts/*.sh"  
 
       - name: Execute Tests
         run: |
