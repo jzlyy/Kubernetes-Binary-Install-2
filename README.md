@@ -93,4 +93,18 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
     Master1->>etcd: Data Read/Write (Port 2379)
     Master1-->>Client: Response
     Master2->>etcd: Data Synchronization
+---
+## Contribution Guidelines
 
+Welcome to contribute code! Please follow these steps:
+1. Fork this repository and create a branch.
+2. Run ./test_cluster-master to ensure all tests pass before submitting code.
+3. Submit a Pull Request with a description of your changes.
+
+For detailed workflows, refer to [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## Maintainers
+- [jzlyy](https://github.com/jzlyy)
+
+## Security Policy
+To report security vulnerabilities, please see [SECURITY.md](SECURITY.md)。
