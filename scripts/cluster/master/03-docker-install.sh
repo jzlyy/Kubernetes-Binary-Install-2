@@ -3,7 +3,7 @@
 ######Install Docker environment######
 
 #Enable Docker CE YUM repository
-cd /etc/yum.repos.d
+cd /etc/yum.repos.d || exit 1
 sudo wget https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 sudo dnf makecache
 
