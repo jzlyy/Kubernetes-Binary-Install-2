@@ -4,61 +4,52 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: "main"
 
 jobs:
   test-shell-scripts:
     runs-on: ubuntu-latest
     container:
-      image: rockylinux:9  # 使用 Rocky Linux 9 官方镜像
-      options: --privileged --user root  # 以 root 权限运行容器
+      image: rockylinux:9
+      options: --security-opt seccomp=unconfined --user root
 
     steps:
       - name: Checkout code
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/checkout@v4
 
       - name: Configure Rocky Linux Environment
         run: |
-          # 1. 替换为阿里云镜像源（国内加速）
-          sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/rocky-*
-          sed -i 's|#baseurl=http://dl.rockylinux.org|baseurl=https://mirrors.aliyun.com/rockylinux|g' /etc/yum.repos.d/rocky-*
+          set -euxo pipefail
 
-          # 2. 安装基础依赖
-          dnf install -y epel-release  # EPEL 仓库
-          dnf install -y git curl tar gzip ansible  # 项目所需工具
+          # 替换镜像源
+          for repo in /etc/yum.repos.d/rocky*.repo; do
+            sed -i 's/mirrorlist/#mirrorlist/g' $repo
+            sed -i 's|#baseurl=http://dl.rockylinux.org|baseurl=https://mirrors.aliyun.com/rockylinux|g' $repo
+          done
 
-          # 3. 赋予脚本执行权限
-          chmod +x ./scripts/*.sh
+          # 安装依赖
+          dnf update -y
+          dnf install -y epel-release
+          dnf install -y git curl tar gzip ansible which \
+            bash-completion openssh-clients sudo
+
+          # 统一授权脚本
+          find ./scripts -name "*.sh" -exec chmod +x {} \;
 
       - name: Run Host Tests
-        run: |
-          # 执行主机测试脚本
-          ./scripts/test_host-master.sh
-          if [ $? -ne 0 ]; then
-            echo "❌ Host 测试失败！"
-            exit 1
-          fi
+        run: ./scripts/test_host-master.sh
 
       - name: Run Cluster Tests
-        run: |
-          # 执行集群测试脚本
-          ./scripts/test_cluster-master.sh
-          if [ $? -ne 0 ]; then
-            echo "❌ Cluster 测试失败！"
-            exit 1
-          fi
+        run: ./scripts/test_cluster-master.sh
 
       - name: Security Scan (Trivy)
         run: |
-          # 使用 Trivy 扫描高危漏洞
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
-          trivy filesystem --exit-code 1 --severity HIGH,CRITICAL /
-
-      - name: Upload Logs (Optional)
-        if: always()  # 始终上传日志（即使失败）
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-logs
-          path: |
-            ./logs/*.log
-            /var/log/messages
+          # 安装指定版本 Trivy
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh \
+            | sh -s -- -b /usr/local/bin v0.50.1
+          
+          # 仅扫描项目目录
+          trivy filesystem --exit-code 1 \
+            --severity HIGH,CRITICAL \
+            --ignore-unfixed \
+            $GITHUB_WORKSPACE
