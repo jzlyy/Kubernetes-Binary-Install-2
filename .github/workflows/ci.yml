@@ -9,17 +9,13 @@ on:
 jobs:
   test-shell-scripts:
     runs-on: ubuntu-latest
-    permissions:  # 添加权限
-      actions: write
-      contents: read
-      packages: read
     container:
       image: rockylinux:9  # 使用 Rocky Linux 9 官方镜像
       options: --privileged --user root  # 以 root 权限运行容器
 
     steps:
       - name: Checkout code
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
 
       - name: Configure Rocky Linux Environment
         run: |
