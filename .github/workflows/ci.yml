@@ -45,9 +45,7 @@ jobs:
         run: ./scripts/test_host-master.sh
 
       - name: Run Cluster Tests
-        run: |
-         cd "${GITHUB_WORKSPACE}"
-         ./scripts/test_cluster-master.sh
+        run: ./scripts/test_cluster-master.sh
 
       - name: Security Scan (Trivy)
         run: |
