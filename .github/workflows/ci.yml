@@ -39,13 +39,15 @@ jobs:
               --allowerasing --nobest
 
           # 统一授权脚本
-          find ./root/kubernetes-binary-install-2/scripts -name "*.sh" -exec chmod +x {} \;
+          find ./scripts -name "*.sh" -exec chmod +x {} \;
 
       - name: Run Host Tests
-        run: ./root/kubernetes-binary-install-2/scripts/test_host-master.sh
+        run: ./scripts/test_host-master.sh
 
       - name: Run Cluster Tests
-        run: ./root/kubernetes-binary-install-2/scripts/test_cluster-master.sh
+        run: |
+         cd "${GITHUB_WORKSPACE}"
+         ./scripts/test_cluster-master.sh
 
       - name: Security Scan (Trivy)
         run: |
