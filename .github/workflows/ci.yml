@@ -32,10 +32,11 @@ jobs:
           rm -rf /var/cache/dnf
 
           # 安装依赖
-          dnf update -y
+          dnf update -y --allowerasing
           dnf install -y epel-release
-          dnf install -y git curl tar gzip  which \
-            bash-completion openssh-clients sudo
+          dnf install -y git curl tar gzip ansible which \
+              bash-completion openssh-clients sudo \
+              --allowerasing --nobest
 
           # 统一授权脚本
           find ./scripts -name "*.sh" -exec chmod +x {} \;
