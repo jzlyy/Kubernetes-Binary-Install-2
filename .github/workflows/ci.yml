@@ -23,9 +23,13 @@ jobs:
 
           # 替换镜像源
           for repo in /etc/yum.repos.d/rocky*.repo; do
-            sed -i 's/mirrorlist/#mirrorlist/g' $repo
-            sed -i 's|#baseurl=http://dl.rockylinux.org|baseurl=https://mirrors.aliyun.com/rockylinux|g' $repo
+                  sed -i 's|^mirrorlist=|#mirrorlist=|g' $repo
+                  sed -i 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.aliyun.com/rockylinux|g' $repo
+                  sed -i 's|/$contentdir/|/9/|g' $repo
           done
+
+          dnf clean all
+          rm -rf /var/cache/dnf
 
           # 安装依赖
           dnf update -y
