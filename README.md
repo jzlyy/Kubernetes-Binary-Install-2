@@ -1,6 +1,5 @@
 # kubernetes-binary-install-2
 [![GitHub License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10241/badge)](https://www.bestpractices.dev/projects/10241)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 
 
