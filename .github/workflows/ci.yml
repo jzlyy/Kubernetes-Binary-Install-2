@@ -34,7 +34,7 @@ jobs:
           # 安装依赖
           dnf update -y
           dnf install -y epel-release
-          dnf install -y git curl tar gzip ansible which \
+          dnf install -y git curl tar gzip  which \
             bash-completion openssh-clients sudo
 
           # 统一授权脚本
