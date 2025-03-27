@@ -61,4 +61,4 @@ networking:
   serviceSubnet: 10.96.0.0/12
 proxy: {}
 scheduler: {}
-controlPlaneEndpoint: 172.168.20.10:16443
+controlPlaneEndpoint: 172.168.20.110:16443
