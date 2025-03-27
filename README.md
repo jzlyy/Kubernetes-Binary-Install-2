@@ -59,12 +59,17 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
     tar -xf v1.32.3.tar.gz
     mv kubernetes-binary-install-2-1.32.3 kubernetes-binary-install-2
 #### Master
-    cd kubernetes-binary-install-2/scripts/cluster/master
+    cd kubernetes-binary-install-2/scripts
+    sh execute_host-master.sh 
+    sh execute_cluster-master.sh
+### Master-backup
+    cd kubernetes-binary-install-2/scripts
+    sh execute_host-master-backup.sh
+    sh execute_cluster-master-backup.sh
 #### Worker
-    cd kubernetes-binary-install-2/scripts/cluster/worker
-    
-### Execute the One-Click Installation Script
-    sh xx.sh 
+    cd kubernetes-binary-install-2/scripts
+    sh execute_host-worker.sh
+    sh execute_cluster-worker.sh
 ---
 ## Detailed
 ### Customize kubeadm Templates
