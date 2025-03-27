@@ -14,7 +14,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 - [Start](#Start)
 - [Detailed](#Detailed)
 - [Architecture](#Architecture)
-
+- [Case](#Case)
 ---
 ## Features
 **Core Features**
@@ -100,6 +100,10 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
     Master1->>etcd: Data Read/Write (Port 2379)
     Master1-->>Client: Response
     Master2->>etcd: Data Synchronization
+---
+## Case
+ 
+The Cloud Computing Laboratory of Neijiang Vocational and Technical College implemented this solution to deploy a highly available Kubernetes cluster, enabling API Service to handle requests with high concurrency, high throughput, and low latency.
 ---
 ## Contribution Guidelines
 
