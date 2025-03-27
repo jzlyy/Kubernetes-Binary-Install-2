@@ -28,17 +28,19 @@ timeouts:
 ---
 apiServer:
   certSANs:
-    - "172.168.20.90"
+    - "172.168.20.110"
     - "127.0.0.1"
     - "kubernetes.default.svc"
     - "master-node1"
     - "172.168.20.10"
     - "master-node2"
     - "172.168.20.30"
-    - "worker-node1"
+    - "master-node3"
     - "172.168.20.50"
-    - "worker-node2"
+    - "worker-node1"
     - "172.168.20.70"
+    - "worker-node2"
+    - "172.168.20.90"
 apiVersion: kubeadm.k8s.io/v1beta4
 caCertificateValidityPeriod: 87600h0m0s
 certificateValidityPeriod: 8760h0m0s
