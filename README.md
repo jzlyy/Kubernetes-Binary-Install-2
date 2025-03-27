@@ -102,8 +102,8 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
     Master2->>etcd: Data Synchronization
 ---
 ## Case
- 
-The Cloud Computing Laboratory of Neijiang Vocational and Technical College implemented this solution to deploy a highly available Kubernetes cluster, enabling API Service to handle requests with high concurrency, high throughput, and low latency.
+
+    The Cloud Computing Laboratory of Neijiang Vocational and Technical College implemented this solution to deploy a highly available Kubernetes cluster, enabling API Service to handle requests with high concurrency, high throughput, and low latency.
 ---
 ## Contribution Guidelines
 
