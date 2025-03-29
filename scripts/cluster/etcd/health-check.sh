@@ -2,7 +2,7 @@
 
 ######Health Check######
 
-#查看成员列表
+#Check member list
 etcdctl member list \
   --endpoints=https://etcd-01:2379 \
   --cacert=/etc/etcd/ca.pem \
@@ -10,7 +10,7 @@ etcdctl member list \
   --key=/etc/etcd/etcd-key.pem \
   -w table
 
-#节点健康检测
+#Node health check
 ETCDCTL_API=3 etcdctl \
   --endpoints=https://etcd-01:2379,https://etcd-02:2379,https://etcd-03:2379 \
   --cacert=/etc/etcd/ca.pem \
@@ -18,7 +18,7 @@ ETCDCTL_API=3 etcdctl \
   --key=/etc/etcd/etcd-key.pem \
   endpoint health --write-out=table
 
-#集群状态检测
+#Cluster status check
 ETCDCTL_API=3 etcdctl \
   --endpoints=https://etcd-01:2379,https://etcd-02:2379,https://etcd-03:2379 \
   --cacert=/etc/etcd/ca.pem \
