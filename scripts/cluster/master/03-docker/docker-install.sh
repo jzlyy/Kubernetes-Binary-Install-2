@@ -12,7 +12,7 @@ sudo dnf -y install docker-ce
 
 #Configure Docker image accelerator
 sudo mkdir -p /etc/docker
-sudo cp /root/kubernetes-binary-install-2/configs/daemon.json /etc/docker/daemon.json
+sudo cp /root/kubernetes-binary-install/configs/daemon.json /etc/docker/daemon.json
 
 #Start Docker service
 sudo systemctl daemon-reload
@@ -25,7 +25,7 @@ sudo tar -xf cri-dockerd-0.3.16.amd64.tgz
 sudo mv cri-dockerd/cri-dockerd /usr/local/bin/
 
 #Configure the cri-dockerd service file
-sudo cp /root/kubernetes-binary-install-2/configs/docker/cri-dockerd.service /usr/lib/systemd/system 
+sudo cp /root/kubernetes-binary-install/configs/docker/cri-dockerd.service /usr/lib/systemd/system 
 
 #Start cri-dockerd service
 sudo systemctl daemon-reload
