@@ -1,0 +1,33 @@
+[Unit]
+Description=etcd key-value store
+Documentation=https://github.com/etcd-io/etcd
+
+[Service]
+Type=notify
+Environment=ETCD_NAME=etcd-01
+Environment=ETCD_DATA_DIR=/var/lib/etcd
+ExecStart=/usr/local/bin/etcd \
+  --cert-file=/etc/etcd/etcd.pem \
+  --key-file=/etc/etcd/etcd-key.pem \
+  --peer-cert-file=/etc/etcd/etcd.pem \
+  --peer-key-file=/etc/etcd/etcd-key.pem \
+  --trusted-ca-file=/etc/etcd/ca.pem \
+  --peer-trusted-ca-file=/etc/etcd/ca.pem \
+  --advertise-client-urls=https://etcd-01:2379 \
+  --initial-advertise-peer-urls=https://etcd-01:2380 \
+  --listen-client-urls=https://0.0.0.0:2379 \
+  --listen-peer-urls=https://0.0.0.0:2380 \
+  --initial-cluster-token=etcd-cluster-1 \
+  --initial-cluster=etcd-01=https://etcd-01:2380,etcd-02=https://etcd-02:2380,etcd-03=https://etcd-03:2380 \
+  --initial-cluster-state=new \
+  --auto-compaction-retention=1 \
+  --quota-backend-bytes=8589934592 \
+  --heartbeat-interval=250 \
+  --election-timeout=2000
+
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
