@@ -26,3 +26,7 @@ cfssl gencert \
   -ca-key=ca-key.pem \
   -config=ca-config.json \
   -profile=etcd etcd-csr.json | cfssljson -bare etcd
+
+#确保统一的信任链(CA)
+sudo scp /etc/etcd/{ca.pem,etcd.pem,etcd-key.pem} 172.168.20.121:/etc/etcd/
+sudo scp /etc/etcd/{ca.pem,etcd.pem,etcd-key.pem} 172.168.20.122:/etc/etcd/
