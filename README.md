@@ -20,7 +20,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 **Core Features**
 - One-click deployment of a highly available Kubernetes control plane with multi-Master node load balancing.
 - Automated TLS certificate issuance for components (etcd, apiserver, kubelet).
-- Optimized configuration for the Containerd runtime.
+- Optimized configuration for the Containerd runtime / Compatible with Docker environments.
 - Integration of CNI plugins (Calico/Flannel, etc.) with NetworkPolicy support.
 
 **Extended Capabilities**
@@ -43,7 +43,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 | 1.31.6              | Calico 3.29.1  Flannel 0.26.1  | 1.6+                 |3.27+
 
 ### **Software Dependencies**
-- OS: CentOS 7.9+ / Rocky Linux 8.6+
+- OS: CentOS 7.9+ / Rocky Linux 8.6+ / Optional Ubuntu support
 - Container Runtime: Containerd 1.7+ / Docker 3.28+
 - Kernel: ≥ 5.4（recommended with `overlay2` and `ipvs` modules enabled).
 
