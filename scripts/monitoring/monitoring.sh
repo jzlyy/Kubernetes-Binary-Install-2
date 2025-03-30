@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x  # Enable debug output
 
-export HELM_CHART_PATH="/root/kubernetes-binary-install-2/artifacts/helm/kube-prometheus-stack"
+export HELM_CHART_PATH="/root/kubernetes-binary-install/artifacts/helm/kube-prometheus-stack"
 
 # Create a namespace
 kubectl create ns monitor
