@@ -37,14 +37,14 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 | Worker     | 4cores  | 8GB    | 100GB |
 
 ### **Version Compatibility**
-| Kubernetes Versions |         Tested CNI Versions          |  Containerd Versions |
-|---------------------|--------------------------------------|----------------------|
-| 1.32.3              | Calico 3.29.2  Flannel 0.26.5        | 1.7+                 |
-| 1.31.6              | Calico 3.29.1  Flannel 0.26.1        | 1.6+                 |
+| Kubernetes Versions |         Tested CNI Versions          |  Containerd Versions | Docker Version |
+|---------------------|--------------------------------------|----------------------|----------------|
+| 1.32.3              | Calico 3.29.2  Flannel 0.26.5        | 1.7+                 |3.28+
+| 1.31.6              | Calico 3.29.1  Flannel 0.26.1        | 1.6+                 |3.27+
 
 ### **Software Dependencies**
 - OS: CentOS 7.9+ / Rocky Linux 8.6+
-- Container Runtime: Containerd 1.6+
+- Container Runtime: Containerd 1.7+ / Docker 3.28+
 - Kernel: ≥ 5.4（recommended with `overlay2` and `ipvs` modules enabled).
 
 ### **Network Requirements**
@@ -53,23 +53,37 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 ---
 ## Start
 ### Download the Installation Package
-    wget https://github.com/jzlyy/kubernetes-binary-install-2/archive/refs/tags/v1.32.3.tar.gz
+    wget https://github.com/jzlyy/kubernetes-binary-install/archive/refs/tags/v1.32.3.tar.gz
 
 ### Extract the Package and Enter the Directory
     tar -xf v1.32.3.tar.gz
-    mv kubernetes-binary-install-2-1.32.3 kubernetes-binary-install-2
+    mv kubernetes-binary-install-1.32.3 kubernetes-binary-install
+### Containerd
 #### Master
-    cd kubernetes-binary-install-2/scripts
-    sh execute_host-master.sh 
-    sh execute_cluster-master.sh
-### Master-backup
-    cd kubernetes-binary-install-2/scripts
-    sh execute_host-master-backup.sh
-    sh execute_cluster-master-backup.sh
+    cd kubernetes-binary-install/scripts/execute-containerd
+    sh 01-host-master.sh 
+    sh 02-cluster-master.sh
+#### Master-backup
+    cd kubernetes-binary-install-2/scripts/execute-containerd
+    sh 01-host-master-backup.sh
+    sh 02-cluster-master-backup.sh
 #### Worker
-    cd kubernetes-binary-install-2/scripts
-    sh execute_host-worker.sh
-    sh execute_cluster-worker.sh
+    cd kubernetes-binary-install-2/scripts/execute-containerd
+    sh 01-host-worker.sh
+    sh 02-cluster-worker.sh
+### Docker
+#### Master
+    cd kubernetes-binary-install/scripts/execute-docker
+    sh 01-host-master.sh
+    sh 02-cluster-master.sh
+#### Master-backup
+    cd kubernetes-binary-install-2/scripts/execute-docker
+    sh 01-host-master-backup.sh
+    sh 02-cluster-master-backup.sh
+#### Worker
+    kubernetes-binary-install/scripts/execute-docker
+    sh 01-host-worker.sh
+    sh 02-cluster-worker.sh
 ---
 ## Detailed
 ### Customize kubeadm Templates
@@ -82,7 +96,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
       podSubnet: "192.168.0.0/16"         # Must be compatible with the CNI plugin
     apiServer:
       certSANs:                           # Certificate SAN Extension (Subject Alternative Name)
-        - "172.168.20.90"
+        - "172.168.20.110"
         - "127.0.0.1"
         - "kubernetes.default.svc"
 ---
