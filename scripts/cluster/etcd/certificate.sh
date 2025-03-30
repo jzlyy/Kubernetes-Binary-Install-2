@@ -28,11 +28,19 @@ cfssl gencert \
 
 #创建客户端证书请求文件
 sudo cp /root/kubernetes-binary-install/configs/etcd/client-csr.json client-csr.json
-cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=etcd client-csr.json | cfssljson -bare client
+cfssl gencert \
+   -ca=ca.pem \
+   -ca-key=ca-key.pem \
+   -config=ca-config.json \
+   -profile=etcd client-csr.json | cfssljson -bare client
 
 #创建对等体请求文件
 sudo cp /root/kubernetes-binary-install/configs/etcd/peer-csr.json peer-csr.json
-cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=etcd peer-csr.json | cfssljson -bare peer
+cfssl gencert \
+   -ca=ca.pem \
+   -ca-key=ca-key.pem \
+   -config=ca-config.json \
+   -profile=etcd peer-csr.json | cfssljson -bare peer
 
 #Create directories and configure permissions
 sudo mkdir -p /etc/etcd /var/lib/etcd
