@@ -45,7 +45,11 @@ cfssl gencert \
 #Create directories and configure permissions
 sudo mkdir -p /etc/etcd /var/lib/etcd
 sudo chmod 700 /var/lib/etcd
-sudo mv ca.pem etcd.pem etcd-key.pem peer.pem peer-key.pem clinet.pem client-key.pem /etc/etcd/
+sudo mv ca.pem etcd.pem etcd-key.pem peer.pem peer-key.pem client.pem client-key.pem /etc/etcd/
+
+#
+sudo mkdir ssl
+sudo mv ca-config.json etcd-csr.json peer-csr.json client-csr.json ca-csr.json ca.csr ca-key.pem etcd.csr peer.csr client.csr ssl
 
 #Ensure a unified trust chain (CA)
 sudo scp /etc/etcd/{ca.pem,etcd.pem,etcd-key.pem,peer.pem,peer-key.pem} 172.168.20.121:/etc/etcd/
