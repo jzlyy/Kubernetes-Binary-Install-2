@@ -37,10 +37,10 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 | Worker     | 4cores  | 8GB    | 100GB |
 
 ### **Version Compatibility**
-| Kubernetes Versions |         Tested CNI Versions          |  Containerd Versions | Docker Version |
-|---------------------|--------------------------------------|----------------------|----------------|
-| 1.32.3              | Calico 3.29.2  Flannel 0.26.5        | 1.7+                 |3.28+
-| 1.31.6              | Calico 3.29.1  Flannel 0.26.1        | 1.6+                 |3.27+
+| Kubernetes Versions |           CNI Versions         |  Containerd Versions | Docker Version |
+|---------------------|--------------------------------|----------------------|----------------|
+| 1.32.3              | Calico 3.29.2  Flannel 0.26.5  | 1.7+                 |3.28+
+| 1.31.6              | Calico 3.29.1  Flannel 0.26.1  | 1.6+                 |3.27+
 
 ### **Software Dependencies**
 - OS: CentOS 7.9+ / Rocky Linux 8.6+
