@@ -58,7 +58,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 ### Extract the Package and Enter the Directory
     tar -xf v1.32.3.tar.gz
     mv kubernetes-binary-install-1.32.3 kubernetes-binary-install
-### Containerd
+### Containerd Runtime
 #### Master
     cd kubernetes-binary-install/scripts/execute-containerd
     sh 01-host-master.sh 
@@ -71,7 +71,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
     cd kubernetes-binary-install-2/scripts/execute-containerd
     sh 01-host-worker.sh
     sh 02-cluster-worker.sh
-### Docker
+### Docker Runtime
 #### Master
     cd kubernetes-binary-install/scripts/execute-docker
     sh 01-host-master.sh
