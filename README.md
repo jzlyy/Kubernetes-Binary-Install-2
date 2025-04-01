@@ -44,7 +44,7 @@ High Availability (HA) Cluster using kubeadm and keepalived (containerd containe
 
 ### **Software Dependencies**
 - OS: CentOS 7.9+ / Rocky Linux 8.6+ / Optional Ubuntu support
-- Container Runtime: Containerd 1.7+ / Docker 3.28+
+- Container Runtime: Containerd 1.7+ / Docker 3.28+ .
 - Kernel: ≥ 5.4（recommended with `overlay2` and `ipvs` modules enabled).
 
 ### **Network Requirements**
