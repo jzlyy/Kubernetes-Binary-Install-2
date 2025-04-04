@@ -27,6 +27,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 - Optional deployment of Ingress Controller (Nginx).
 - Support for offline environment deployment with a shell-based installation script.
 - Built-in Prometheus + Grafana monitoring suite for real-time cluster metrics collection.
+- Highly available external etcd cluster for large-scale Kubernetes cluster data storage.
 ---
 
 ## Environment
