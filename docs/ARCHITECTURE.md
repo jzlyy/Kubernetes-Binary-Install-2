@@ -1,11 +1,12 @@
 ## graph TD
     subgraph External Access Layer
-        A[Cloud LB] -->|TCP 6443| B[Nginx VIP]
+        A[Cloud LB] -->|TCP 6443| B[Nginx Stream VIP]
     end
 
     subgraph Control Plane
         B --> C[Master1: kube-apiserver]
         B --> D[Master2: kube-apiserver]
+        B --> E[Master3: kube-apiserver]
     end
 
     subgraph Distributed Storage Layer
@@ -32,7 +33,7 @@
     end
 
     subgraph Additional Components
-        O[Keepalived] -->|VRRP| P[Nginx]
+        O[Keepalived] -->|VRRP| P[Nginx Stream]
         Q[Prometheus] -->|Monitoring data| R[Alertmanager]
         S[Grafana] -->|Dashboard| Q
     end
@@ -40,7 +41,7 @@
 ## High Availability Assurance Mechanisms
 
 1. **API Server Layer**
-   - Implement 4-layer load balancing via Nginx VIP
+   - Implement 4-layer load balancing via Nginx Stream VIP
    - Independent and stateless deployment for each API Server
 
 2. **etcd Cluster**
@@ -52,5 +53,5 @@
    - BGP mode integration with physical network devices
 
 4. **Fault Recovery**
-   - Real-time Nginx health monitoring via Keepalived
+   - Real-time Nginx Sream health monitoring via Keepalived
    - Automatic VIP migration upon node failure
