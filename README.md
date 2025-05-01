@@ -67,11 +67,11 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
     sh 01-host-master.sh 
     sh 02-cluster-master.sh
 #### Backup
-    cd kubernetes-binary-install-2/scripts/execute-containerd
+    cd kubernetes-binary-install/scripts/execute-containerd
     sh 01-host-master-backup.sh
     sh 02-cluster-master-backup.sh
 #### Worker
-    cd kubernetes-binary-install-2/scripts/execute-containerd
+    cd kubernetes-binary-install/scripts/execute-containerd
     sh 01-host-worker.sh
     sh 02-cluster-worker.sh
 ### Docker Runtime
@@ -80,7 +80,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
     sh 01-host-master.sh
     sh 02-cluster-master.sh
 #### Backup
-    cd kubernetes-binary-install-2/scripts/execute-docker
+    cd kubernetes-binary-install/scripts/execute-docker
     sh 01-host-master-backup.sh
     sh 02-cluster-master-backup.sh
 #### Worker
