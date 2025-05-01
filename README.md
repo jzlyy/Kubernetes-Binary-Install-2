@@ -35,17 +35,18 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 | Role       | CPU     | Memory | Disk  |
 |------------|---------|--------|-------|
 | Master     | 4cores  | 6GB    | 60GB  | 
-| Worker     | 4cores  | 8GB    | 100GB |
+| Worker     | 4cores  | 8GB    | 120GB |
 
 ### **Version Compatibility**
 | Kubernetes Versions |           CNI Versions         |  Containerd Versions | Docker Version |
 |---------------------|--------------------------------|----------------------|----------------|
-| 1.32.3              | Calico 3.29.2  Flannel 0.26.5  | 1.7+                 |3.28+
-| 1.31.6              | Calico 3.29.1  Flannel 0.26.1  | 1.6+                 |3.27+
+| 1.33.0              | Calico 3.29.3  Flannel 0.26.7  | 1.7+                 | 3.28+
+| 1.32.3              | Calico 3.29.2  Flannel 0.26.5  | 1.7+                 | 3.28+
+| 1.31.6              | Calico 3.29.1  Flannel 0.26.1  | 1.6+                 | 3.27+
 
 ### **Software Dependencies**
-- OS: CentOS 7.9+ / Rocky Linux 8.6+ / Optional Ubuntu support
-- Container Runtime: Containerd 1.7+ / Docker 3.28+ .
+- OS: CentOS 7+ / Rocky Linux 8+ / Optional Ubuntu support
+- Container Runtime: Containerd 1.6+ / Docker 3.27+ .
 - Kernel: ≥ 5.4（recommended with `overlay2` and `ipvs` modules enabled).
 
 ### **Network Requirements**
