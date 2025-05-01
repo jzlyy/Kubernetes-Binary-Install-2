@@ -1,0 +1,11 @@
+[Unit]
+Description=alertmanager
+After=network.target
+
+[Service]
+ExecStart=/usr/local/prometheus-webhook-dingtalk/prometheus-webhook-dingtalk \
+--config.file=/usr/local/prometheus-webhook-dingtalk/config.example.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
