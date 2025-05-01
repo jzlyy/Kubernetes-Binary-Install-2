@@ -120,7 +120,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 ---
 ## Case
 
-The Huawei Cloud Computing Laboratory of Neijiang Vocational and Technical College implemented this solution to deploy a highly available Kubernetes cluster, enabling API Service to handle requests with high concurrency, high throughput, and low latency.
+Contribute this open-source solution to the school's Huawei Cloud Computing Laboratory, providing it as a learning and reference resource for teachers and students to enhance teaching quality and improve students' ability to rapidly apply knowledge in practice.
 
 ---
 ## Contribution Guidelines
