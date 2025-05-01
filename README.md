@@ -66,7 +66,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
     cd kubernetes-binary-install/scripts/execute-containerd
     sh 01-host-master.sh 
     sh 02-cluster-master.sh
-#### Master-backup
+#### Backup
     cd kubernetes-binary-install-2/scripts/execute-containerd
     sh 01-host-master-backup.sh
     sh 02-cluster-master-backup.sh
@@ -79,7 +79,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
     cd kubernetes-binary-install/scripts/execute-docker
     sh 01-host-master.sh
     sh 02-cluster-master.sh
-#### Master-backup
+#### Backup
     cd kubernetes-binary-install-2/scripts/execute-docker
     sh 01-host-master-backup.sh
     sh 02-cluster-master-backup.sh
