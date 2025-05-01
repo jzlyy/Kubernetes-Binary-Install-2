@@ -55,11 +55,11 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 ---
 ## Start
 ### Download the Installation Package
-    wget https://github.com/jzlyy/kubernetes-binary-install/archive/refs/tags/v1.32.3.tar.gz
+    wget https://github.com/jzlyy/kubernetes-binary-install/archive/refs/tags/v1.33.0.tar.gz
 
 ### Extract the Package and Enter the Directory
-    tar -xf v1.32.3.tar.gz
-    mv kubernetes-binary-install-1.32.3 kubernetes-binary-install
+    tar -xf v1.33.0.tar.gz
+    mv kubernetes-binary-install-1.33.0 kubernetes-binary-install
 ### Containerd Runtime
 #### Master
     cd kubernetes-binary-install/scripts/execute-containerd
@@ -92,7 +92,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
     Modify the core parameters in configs/kubeadm-config.yaml：
     apiVersion: kubeadm.k8s.io/v1beta3
     kind: ClusterConfiguration
-    kubernetesVersion: v1.32.3
+    kubernetesVersion: v1.33.0
     controlPlaneEndpoint: "172.168.20.90:16443"  # High Availability VIP Address
     networking:
       podSubnet: "192.168.0.0/16"         # Must be compatible with the CNI plugin
