@@ -91,7 +91,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 ## Detailed
 ### Customize kubeadm Templates
     Modify the core parameters in configs/kubeadm-config.yaml：
-    apiVersion: kubeadm.k8s.io/v1beta3
+    apiVersion: kubeadm.k8s.io/v1beta4
     kind: ClusterConfiguration
     kubernetesVersion: v1.33.0
     controlPlaneEndpoint: "172.168.20.90:16443"  # High Availability VIP Address
