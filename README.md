@@ -120,7 +120,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 ---
 ## Case
 
-The Cloud Computing Laboratory of Neijiang Vocational and Technical College implemented this solution to deploy a highly available Kubernetes cluster, enabling API Service to handle requests with high concurrency, high throughput, and low latency.
+The HuaWei Cloud Computing Laboratory of Neijiang Vocational and Technical College implemented this solution to deploy a highly available Kubernetes cluster, enabling API Service to handle requests with high concurrency, high throughput, and low latency.
 
 ---
 ## Contribution Guidelines
