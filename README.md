@@ -35,6 +35,7 @@ High Availability (HA) Cluster using Kubeadm and Keepalived (Containerd/Docker c
 | Role       | CPU     | Memory | Disk  |
 |------------|---------|--------|-------|
 | Master     | 4cores  | 6GB    | 60GB  | 
+| Backup     | 4cores  | 6GB    | 60GB  |
 | Worker     | 6cores  | 8GB    | 120GB |
 
 ### **Version Compatibility**
