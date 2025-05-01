@@ -529,17 +529,20 @@ alertmanager:
       - target_matchers:
           - 'alertname = InfoInhibitor'
     route:
-      group_by: ['namespace']
+      group_by: ['alertname']
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h
-      receiver: 'null'
+      receiver: 'dingtalk-webhook'
       routes:
       - receiver: 'null'
         matchers:
           - alertname = "Watchdog"
     receivers:
-    - name: 'null'
+    - name: 'dingtalk-webhook'
+      wehook_configs:
+        - url: 'http://IP:8060/dingtalk/webhook1/send'
+          send_resolved: true
     templates:
     - '/etc/alertmanager/config/*.tmpl'
 
